@@ -6,18 +6,20 @@
 </head>
 <body>
 <?php
-  ignore_user_abort(true);  
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);  
   require 'vendor/autoload.php';
-  $client = \Symfony\Component\Panther\Client::createFirefoxClient();
-  //use Goutte\Client;
-  //$client = new Client();
-  $crawler = $client->request('GET', 'https://www.youtube.com/results?search_query=php+web+scraping&sp=CAASBAgEEAE%253D');
-  sleep(3);
-  //$d = $c->html();
-  //echo($d);
-  $client->clickLink('php web scraping tutorial(simple)');
-  //$crawler = $client->click($link);
-  //sleep(15);
+  echo("mnames");
+  try{
+    $client = \Vendor\Symfony\Component\Panther\Client::createChromeClient();
+    //use Goutte\Client;
+    //$client = new Goutte\Client();    
+    $client->request('GET', 'https://matveynikon.wixsite.com/dailyhero/post/4-ocean');
+    sleep(15);
+  }
+  catch(exception $b){
+    echo("jeff");
+  }
 ?>
 </body>
 </head>
